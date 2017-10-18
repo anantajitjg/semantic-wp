@@ -4,6 +4,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -11,8 +12,13 @@
     <div class="ui inverted vertical<?php echo is_front_page()?' masthead':''; ?> center aligned segment">
         <div class="ui container">
             <div class="site-info">
-                <h1><a href="<?php echo site_url(); ?>" title="<?php bloginfo('name'); ?>" class="header item"><?php bloginfo('name'); ?></a></h1>
-                <p class="site-description"><?php bloginfo('description'); ?></p>
+                <?php if(function_exists('the_custom_logo')) : ?>
+                    <?php the_custom_logo(); ?>
+                <?php endif; ?>
+                <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>" class="header item"><?php bloginfo('name'); ?></a></h1>
+                <?php if(get_bloginfo('description')) : ?>
+                    <p class="site-description"><?php bloginfo('description'); ?></p>
+                <?php endif; ?>
             </div>
             <div class="ui large secondary inverted pointing menu">
                 <a class="toc item">
