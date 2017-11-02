@@ -8,32 +8,23 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<div>
-    <div class="ui inverted vertical<?php echo is_front_page()?' masthead':''; ?> center aligned segment">
-        <div class="ui container">
+<?php semanticwp_menu('primary', 'sidebar'); // Primary Menu for Handheld Devices ?>
+<div class="main-wrapper pusher">
+    <div class="ui inverted vertical<?php echo (is_front_page() && (!is_paged()))?' masthead':''; ?> center aligned clearing segment">
+        <div class="ui main-header container">
             <div class="site-info">
-                <?php if(function_exists('the_custom_logo')) : ?>
+                <?php if(function_exists('the_custom_logo')): ?>
                     <?php the_custom_logo(); ?>
                 <?php endif; ?>
                 <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>" class="header item"><?php bloginfo('name'); ?></a></h1>
-                <?php if(get_bloginfo('description')) : ?>
+                <?php if(get_bloginfo('description')): ?>
                     <p class="site-description"><?php bloginfo('description'); ?></p>
                 <?php endif; ?>
             </div>
-            <div class="ui large secondary inverted pointing menu">
-                <a class="toc item">
-                    <i class="sidebar icon"></i>
-                </a>
-                <div class="right item">
-                    <a class="active item">Home</a>
-                    <a class="item">Work</a>
-                    <a class="item">Company</a>
-                    <a class="item">Careers</a>
-                </div>
-            </div>
+            <?php semanticwp_menu('primary'); // Primary Menu ?>
         </div>
-        <?php if (is_front_page()) :  ?>
-            <div class="ui text container">
+        <?php if (is_front_page() && (!is_paged())):  ?>
+            <div class="ui featured text container">
                 <h1 class="ui inverted header">
                     Imagine-a-Company
                 </h1>
@@ -44,3 +35,10 @@
             </div>
         <?php endif; ?>
     </div>
+    <!-- Message to be displayed when JavaScript is disabled -->
+    <noscript>
+        <div class="ui warning message">
+            <div class="header">JavaScript Disabled</div>
+            <p>Please enable JavaScript for better viewing experience!</p>
+        </div>
+    </noscript>
