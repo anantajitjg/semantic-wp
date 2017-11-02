@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="ui one column grid container">
+<div class="ui one column grid main container">
     <div class="row">
         <div class="column">
             <div class="ui raised segment">

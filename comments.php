@@ -6,7 +6,7 @@ if(post_password_required())
 ?>
 <div class="blog-comments">
     <h3 class="ui dividing header"><?php _e('Comments', 'semanticwp'); ?></h3>
-    <?php if(have_comments()) : ?>
+    <?php if(have_comments()): ?>
         <ul>
             <?php 
             wp_list_comments(array(
@@ -20,7 +20,7 @@ if(post_password_required())
                 'next_text' => '<span><i class="arrow right icon"></i> '.__('Next', 'semanticwp').'</span>'
             ));
         ?>
-        <?php if(! comments_open() && get_comments_number()) : ?>
+        <?php if(!comments_open() && get_comments_number()): ?>
             <p><?php _e('Comments are closed', 'semanticwp'); ?></p>
         <?php endif; ?>
     <?php endif; // check: have_comments() ?>
