@@ -1,17 +1,18 @@
 <?php get_header(); ?>
-<div class="ui one column grid container">
-    <div class="row">
-    <?php if (have_posts()) :
-            while (have_posts()) : the_post();
+<div class="ui grid main container">
+    <div class="<?php echo is_active_sidebar('blog') ? 'eleven ': 'sixteen '; ?>wide column">
+        <?php 
+            if (have_posts()):
+                echo '<h1 class="ui teal dividing header main-title">' . __('Posts','semanticwp') . '</h1>';
+                while (have_posts()): the_post();
+                    get_template_part('template-parts/content', get_post_format());
+                endwhile;
+                semanticwp_posts_pagination();
+            else:
                 get_template_part('template-parts/content', 'none');
-            endwhile; ?>
-    <?php else: ?>
-            <div class="column">
-                <div class="ui raised segment">
-                    <p><?php _e("Sorry! Nothing to display.", "semanticwp"); ?></p>
-                </div>
-            </div>
-    <?php endif; ?>
+            endif;
+        ?>
     </div>
+    <?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

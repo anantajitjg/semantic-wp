@@ -9,25 +9,144 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: semanticwp
 */
 
+
 /**
-* 01. Header Styles
+* General
 */
 
+
+/* fonts */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+.ui.input input,
+.ui.button,
+.ui.text.container,
+.ui.header,
+.ui.list .list>.item .header,
+.ui.list>.item .header,
+.ui.steps .step .title,
+.ui.form input:not([type]),
+.ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="file"],
+.ui.form input[type="url"],
+.ui.menu,
+.ui.message .header,
+.ui.cards>.card>.content>.header,
+.ui.card>.content>.header,
+.ui.items>.item>.content>.header,
+.ui.statistics .statistic>.value,
+.ui.statistic>.value,
+.ui.statistics .statistic>.label,
+.ui.statistic>.label,
+.ui.accordion .title:not(.ui),
+.ui.modal>.header,
+.ui.popup>.header,
+.ui.search>.results .result .title,
+.ui.search>.results>.message .header,
+.ui.category.search>.results .category>.name {
+    font-family: 'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+/**
+* Accessibility
+*/
+
+
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+
+/**
+* Alignments
+*/
+
+.alignleft {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignright {
+    float: right;
+    margin-left: 1.5em;
+}
+
+
+/**
+* Header Styles
+*/
+
+
 /* front page */
+
 .masthead.segment {
-    min-height: 700px;
+    min-height: 450px;
     padding: 1em 0em;
 }
 
+.masthead .featured.text.container {
+    margin-top: 5.5rem;
+    margin-bottom: 3.4rem;
+}
+
 .masthead h1.ui.header {
-    margin-top: 3em;
+    margin-top: 1.4em;
     margin-bottom: 0em;
-    font-size: 4em;
+    font-size: 2.7em;
     font-weight: normal;
 }
 
 .masthead h2 {
-    font-size: 1.7em;
+    font-size: 1.4em;
     font-weight: normal;
 }
 
@@ -36,36 +155,273 @@ Text Domain: semanticwp
         min-height: 350px;
     }
     .masthead h1.ui.header {
-        font-size: 2em;
-        margin-top: 1.5em;
+        font-size: 1.8em;
+        margin-top: 2.5em;
     }
     .masthead h2 {
         margin-top: 0.5em;
-        font-size: 1.5em;
+        font-size: 1em;
     }
 }
 
-/* site info */
-.site-info {
-    text-align: left;
-    float:left;
+
+/* main header */
+
+.ui.main-header.container {
+    margin-top: 1rem;
+    min-height: 70px;
 }
 
-/* menu styles */
-.secondary.pointing.menu .toc.item {
+
+/* site info */
+
+.site-info {
+    text-align: left;
+    float: left;
+    margin-right: 1.2rem;
+}
+
+.site-title {
+    font-size: 1.8rem;
+}
+
+.site-title a {
+    color: #00b5ad;
+}
+
+.site-title a:hover {
+    color: #009c95;
+}
+
+.site-description {
+    font-size: 1.1rem;
+}
+
+
+/**
+* Posts Styles
+*/
+
+.main.container {
+    margin-top: 1rem;
+}
+
+.ui.header.main-title {
+    font-size: 1.4rem;
+    margin-top: 0.75rem;
+    margin-bottom: 2.1rem;
+    text-transform: uppercase;
+}
+
+.ui.blog.segment {
+    margin: 1.4rem 0;
+}
+
+.ui.blog.segment:first-child {
+    margin-top: 0;
+}
+
+/* featured image */
+
+.featured-image {
+    margin-bottom: 1.8rem;
+}
+
+.featured-image .ui.image,
+.featured-image .ui.image img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* post navigation */
+
+.post-navigation .nav-previous {
+    float: left;
+}
+
+.post-navigation .nav-next {
+    float: right;
+}
+
+/**
+* Post Formats Styles
+*/
+
+
+/* Post Format: link */
+
+.format-link .link-content {
+    margin-left: 2.5em;
+}
+
+.format-link a {
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.format-link a:hover {
+    color: #1e70bf;
+}
+
+
+/**
+* Navigation Menu Styles
+*/
+
+
+/* to fix issues with semantic dropdown */
+
+.ui.menu .dropdown.item .menu {
+    min-width: auto;
+}
+
+
+/* primary menu */
+
+#semanticwp-primary-menu {
+    border: 0;
+    box-shadow: none;
+    margin-top: 0;
+}
+
+#semanticwp-primary-menu .right.menu {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-box-pack: right;
+    -ms-flex-pack: right;
+    justify-content: right;
+}
+
+#semanticwp-primary-menu .item {
+    margin-bottom: 1em;
+}
+
+#semanticwp-primary-menu .active.item {
+    font-weight: normal;
+}
+
+#semanticwp-primary-menu .menubtn.item {
     display: none;
 }
 
-.secondary.pointing.menu .ui.button {
+#semanticwp-primary-menu .ui.button {
     margin-left: 0.5em;
 }
 
+#semanticwp-primary-menu .ui.dropdown.item {
+    border: 0;
+    margin: 0 0 .86em 0;
+    padding: 0;
+}
+
+#semanticwp-primary-menu .dropdown.item>.menu {
+    margin-top: 0em;
+}
+
+#semanticwp-primary-menu .ui.dropdown.item a {
+    margin-bottom: 2px;
+}
+
+#semanticwp-primary-menu .child-sub-menu.item {
+    margin: 0;
+    padding: 0 !important;
+}
+
+#semanticwp-primary-menu .child-sub-menu.item>a {
+    color: rgba(0, 0, 0, .87) !important;
+}
+
+#semanticwp-primary-menu .child-sub-menu.item>a:hover,
+#semanticwp-primary-menu .child-sub-menu.item>a.active.item {
+    color: rgba(0, 0, 0, .95) !important;
+}
+
+#semanticwp-primary-menu .child-sub-menu.item>a.active.item {
+    font-weight: 700 !important;
+}
+
+#semanticwp-sidebar-menu>.sub-menu {
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+#semanticwp-sidebar-menu .sub-menu::before {
+    display: none;
+}
+
+#semanticwp-sidebar-menu .child-sub-menu {
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+#semanticwp-sidebar-menu .sub-menu>.menu {
+    padding-bottom: 0.75rem;
+}
+
+#semanticwp-sidebar-menu .child-sub-menu .menu {
+    padding-left: 2rem;
+}
+
+#semanticwp-sidebar-menu .menu a.item {
+    font-size: 0.84rem;
+    -webkit-transition: color .25s;
+    -o-transition: color .25s;
+    transition: color .25s;
+}
+
+#semanticwp-sidebar-menu .sub-menu .menu a.item:hover,
+#semanticwp-sidebar-menu .sub-menu .menu a.item.active {
+    background: none;
+    color: #fff;
+}
+
+
+/* fix for sidebar menu when admin bar is visible */
+
+.admin-bar #semanticwp-sidebar-menu {
+    padding-top: 46px;
+}
+
 @media only screen and (max-width: 700px) {
-    .secondary.pointing.menu .item,
-    .secondary.pointing.menu .menu {
+    #semanticwp-primary-menu .item,
+    #semanticwp-primary-menu .menu {
         display: none;
     }
-    .secondary.pointing.menu .toc.item {
+    #semanticwp-primary-menu .menubtn.item {
         display: block;
     }
+}
+
+
+/**
+* Media
+*/
+
+img.alignleft,
+img.aligncenter,
+img.alignright {
+    margin-bottom: 1.2em;
+}
+
+.wp-caption,
+.gallery-caption {
+    color: rgba(0, 0, 0, .64);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 1.5em;
+    max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+    margin: 0.75em 0;
 }
