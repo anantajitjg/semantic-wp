@@ -84,3 +84,5 @@ add_action('widgets_init', 'semanticwp_init_widgets');
 
 /* load template specific functions */
 require_once get_template_directory().'/inc/template-functions.php';
+/* customizer additions */
+require_once get_template_directory().'/inc/customizer.php';

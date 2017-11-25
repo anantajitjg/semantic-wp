@@ -6,11 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <?php wp_head(); ?>
+    <?php if(is_not_paged_front_page()): ?>
+        <style>
+            #main-header-wrapper {
+                background: url(<?php echo get_featured_homepage_image_url(); ?>) center center no-repeat;
+                background-size: cover;
+            }
+        </style>
+    <?php endif; ?>
 </head>
 <body <?php body_class(); ?>>
 <?php semanticwp_menu('primary', 'sidebar'); // Primary Menu for Handheld Devices ?>
 <div class="main-wrapper pusher">
-    <div class="ui inverted vertical<?php echo (is_front_page() && (!is_paged()))?' masthead':''; ?> center aligned clearing segment">
+    <div id="main-header-wrapper" class="ui inverted vertical<?php echo (is_not_paged_front_page())?' masthead':''; ?> center aligned clearing segment">
         <div class="ui main-header container">
             <div class="site-info">
                 <?php if(function_exists('the_custom_logo')): ?>
@@ -23,15 +31,11 @@
             </div>
             <?php semanticwp_menu('primary'); // Primary Menu ?>
         </div>
-        <?php if (is_front_page() && (!is_paged())):  ?>
+        <?php if (is_not_paged_front_page()):  ?>
             <div class="ui featured text container">
-                <h1 class="ui inverted header">
-                    Imagine-a-Company
-                </h1>
-                <h2>Do whatever you want when you want to.</h2>
-                <div class="ui huge primary button">Get Started
-                    <i class="right arrow icon"></i>
-                </div>
+                <h1 class="ui inverted header"><?php echo get_theme_mod('featured_title', 'SemanticWP Theme'); ?></h1>
+                <h2><?php echo get_theme_mod('featured_subtitle', 'A WordPress theme based on Semantic UI'); ?></h2>
+                <a href="<?php echo get_theme_mod('featured_button_url', esc_url('https://semantic-ui.com')); ?>" class="ui huge secondary button"><?php echo get_theme_mod('featured_button_text', 'Know More'); ?></a>
             </div>
         <?php endif; ?>
     </div>

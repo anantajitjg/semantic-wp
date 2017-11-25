@@ -1,6 +1,29 @@
 <?php
 
 /**
+ * is front page without paged result
+ * @return boolean true if there is no paged result
+ */
+function is_not_paged_front_page () {
+    return is_front_page() && (!is_paged());
+}
+
+/**
+ * get the url for homepage featured image
+ * @return string image url
+ */
+function get_featured_homepage_image_url() {
+    $url = get_template_directory_uri() . '/img/featured_image.png';
+    if(strlen(get_theme_mod('featured_homepage_image')) > 0) {
+        $img_src_arr = wp_get_attachment_image_src(get_theme_mod('featured_homepage_image'), 'full');
+        if($img_src_arr) {
+            $url = $img_src_arr[0];
+        }
+    }
+    return $url;
+}
+
+/**
  * Navigation Menu
  * @param string $theme_location Menu location identifier (primary/footer)
  * @param string $type optional Menu Type for Primary Menu (default/sidebar)
