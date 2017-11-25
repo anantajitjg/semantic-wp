@@ -40,6 +40,9 @@ if (!function_exists('semanticwp_setup')):
         );
         add_theme_support('custom-logo', $logo_defaults);
 
+        // Add theme support for selective refresh for widgets.
+        add_theme_support( 'customize-selective-refresh-widgets' );
+        
         // Post formats support
         add_theme_support('post-formats', array('aside', 'gallery', 'link'));
     }
@@ -60,6 +63,14 @@ function semanticwp_scripts() {
     }
 }
 add_action('wp_enqueue_scripts', 'semanticwp_scripts');
+
+/**
+ * Enqueue scripts for customize preview
+ */
+function semanticwp_preview_scripts() {
+    wp_enqueue_script('semantcwp_customize_preview', get_template_directory_uri().'/js/customize_preview.js', array( 'customize-preview', 'jquery' ));
+}
+add_action('customize_preview_init', 'semanticwp_preview_scripts');
 
 /* load custom widgets */
 require_once get_template_directory().'/inc/widgets.php';
@@ -84,5 +95,6 @@ add_action('widgets_init', 'semanticwp_init_widgets');
 
 /* load template specific functions */
 require_once get_template_directory().'/inc/template-functions.php';
+
 /* customizer additions */
 require_once get_template_directory().'/inc/customizer.php';

@@ -33,9 +33,9 @@
         </div>
         <?php if (is_not_paged_front_page()):  ?>
             <div class="ui featured text container">
-                <h1 class="ui inverted header"><?php echo get_theme_mod('featured_title', 'SemanticWP Theme'); ?></h1>
-                <h2><?php echo get_theme_mod('featured_subtitle', 'A WordPress theme based on Semantic UI'); ?></h2>
-                <a href="<?php echo get_theme_mod('featured_button_url', esc_url('https://semantic-ui.com')); ?>" class="ui huge secondary button"><?php echo get_theme_mod('featured_button_text', 'Know More'); ?></a>
+                <h1 class="ui inverted header featured-title"><?php echo get_theme_mod('featured_title', 'SemanticWP Theme'); ?></h1>
+                <h2 class="featured-subtitle"><?php echo get_theme_mod('featured_subtitle', 'A theme based on Semantic UI front-end framework'); ?></h2>
+                <a href="<?php echo get_theme_mod('featured_button_url', esc_url('https://semantic-ui.com')); ?>" class="ui huge secondary button featured-button"><?php echo get_theme_mod('featured_button_text', 'Know More'); ?></a>
             </div>
         <?php endif; ?>
     </div>

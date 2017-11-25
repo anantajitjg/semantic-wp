@@ -1,6 +1,9 @@
 <?php
 
 function semanticwp_customize_register($wp_customizer) {
+    $wp_customizer->get_setting('blogname')->transport = 'postMessage';
+    $wp_customizer->get_setting('blogdescription')->transport = 'postMessage';
+
     /**
      * Featured Content
      */
@@ -23,7 +26,9 @@ function semanticwp_customize_register($wp_customizer) {
         'priority' => 1
     )));
     $wp_customizer->add_setting('featured_title', array(
-        'default' => __('SemanticWP Theme', 'semanticwp')
+        'default' => __('SemanticWP Theme', 'semanticwp'),
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
     ));
     $wp_customizer->add_control('featured_title', array(
         'label' => __('Title', 'semanticwp'),
@@ -31,7 +36,9 @@ function semanticwp_customize_register($wp_customizer) {
         'priority' => 2
     ));
     $wp_customizer->add_setting('featured_subtitle', array(
-        'default' => __('A WordPress theme based on Semantic UI', 'semanticwp')
+        'default' => __('A theme based on Semantic UI front-end framework', 'semanticwp'),
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
     ));
     $wp_customizer->add_control('featured_subtitle', array(
         'label' => __('Subtitle', 'semanticwp'),
@@ -39,7 +46,9 @@ function semanticwp_customize_register($wp_customizer) {
         'priority' => 3
     ));
     $wp_customizer->add_setting('featured_button_text', array(
-        'default' => __('Know More', 'semanticwp')
+        'default' => __('Know More', 'semanticwp'),
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'sanitize_text_field'
     ));
     $wp_customizer->add_control('featured_button_text', array(
         'label' => __('Button Text', 'semanticwp'),
@@ -47,7 +56,9 @@ function semanticwp_customize_register($wp_customizer) {
         'priority' => 4
     ));
     $wp_customizer->add_setting('featured_button_url', array(
-        'default' => esc_url('https://semantic-ui.com')
+        'default' => esc_url('https://semantic-ui.com'),
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'esc_url_raw'
     ));
     $wp_customizer->add_control('featured_button_url', array(
         'label' => __('Button URL', 'semanticwp'),
