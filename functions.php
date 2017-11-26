@@ -5,8 +5,9 @@ require_once get_template_directory().'/inc/semantic-walker-nav-menu.php';
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  */
-if (!isset($content_width))
-    $content_width = 780;
+if (!isset($content_width)) {
+    $content_width = 740;
+}
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.

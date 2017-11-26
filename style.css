@@ -1,7 +1,8 @@
 /*
 Theme Name: SemanticWP
+Theme URI: https://github.com/anantajitjg/semantic-wp
 Author: Anantajit JG
-Author URI: https://anantajitjg.github.io/
+Author URI: https://anantajitjg.github.io
 Description: A wordpress theme based on Semantic UI front-end framework
 Version: 1.0
 License: GNU General Public License v2 or later
@@ -208,6 +209,8 @@ h5,
     text-align: left;
     float: left;
     margin-right: 1.2rem;
+    max-width: 45%;
+    word-wrap: break-word;
 }
 
 .site-title {
@@ -432,6 +435,11 @@ h5,
 /**
 * Media
 */
+
+img, video {
+    height: auto;
+    max-width: 100%;
+}
 
 img.alignleft,
 img.aligncenter,
